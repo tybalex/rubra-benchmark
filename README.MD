@@ -3,6 +3,8 @@
 ## Quickstart
 
 ### Prerequisites
+
+1.
 To start a server to test Rubra models:
 * [rubra-vllm](https://github.com/rubra-ai/vllm?tab=readme-ov-file#quickstart)
 * [tools.cpp](https://github.com/rubra-ai/tools.cpp?tab=readme-ov-file#toolscpp-quickstart)
@@ -15,6 +17,13 @@ docker compose up
 This will start a server 
 
 by default 5 models will get downloaded. For more details or add more models, check out the `models` dir and add yaml config file.
+
+2. install gptscript: `curl https://get.gptscript.ai/install.sh | sh`
+3. install python dependancies: 
+```
+pip install -r requirements.txt
+```
+
 
 ### Run test
 
