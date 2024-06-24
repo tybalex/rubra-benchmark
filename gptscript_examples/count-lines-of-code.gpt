@@ -1,0 +1,20 @@
+tools: sys.find, count, sum
+
+---
+name: count
+description: Count the number of lines in a text file
+args: file: The file name to read and count
+
+#!wc -l ${file}
+
+---
+name: sum
+description: Sum a list of numbers, separated by comma
+args: nums: a string contains a list of numbers, separated by comma
+
+#!python
+
+import os
+import json
+
+print(sum(json.loads("[" + os.environ.get("nums") + "]")))

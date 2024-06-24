@@ -1,0 +1,10 @@
+name: Mistral-7B-Instruct-v0.3
+parameters:
+  # Model file name
+  model: huggingface://MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF/Mistral-7B-Instruct-v0.3.Q6_K.gguf
+  top_p: 80
+  top_k: 0.9
+  temperature: 0.9
+
+stopwords:
+- "</s>"

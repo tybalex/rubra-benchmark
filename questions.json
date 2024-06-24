@@ -1,0 +1,29 @@
+{
+    "queries": [
+      {
+        "user_query": "What is the distance between San Francisco and Cupertino by driving and by air from both directions?"
+      },
+      {
+        "user_query": "what's the distance between SF and NYC? Use the result value to multiply by 8, and then divide by 2, and then minus 30"
+      },
+      {
+        "user_query": "now order 3 umbrellas for me and generate a password of length 8"
+      },
+      {
+        "user_query": "What is four plus six? What is the result of that plus 2? Take the result and multiply by 5 and then divide by two"
+      },
+      {
+        "user_query": "check the weather in boston, calculate the distance from boston to NYC for me only if it's less than 100 degrees Fahrenheit"
+      },
+      {
+        "user_query": "check the weather in boston, calculate the distance from boston to NYC for me only if it's greater than 100 degrees Fahrenheit"
+      },
+      {
+        "user_query": "check the size of all files in the 'documents' directory."
+      },
+      {
+        "user_query": "create a 3d model with length 8, width 5, and height 4"
+      }
+    ]
+  }
+  

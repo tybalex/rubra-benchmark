@@ -1,0 +1,11 @@
+name: Phi-3-mini-128k-instruct
+parameters:
+  # Model file name
+  model: huggingface://QuantFactory/Phi-3-mini-128k-instruct-GGUF/Phi-3-mini-128k-instruct.Q6_K.gguf
+  top_p: 80
+  top_k: 0.9
+  temperature: 0.9
+
+stopwords:
+- "</s>"
+- "<|end|>"

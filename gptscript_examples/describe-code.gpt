@@ -1,0 +1,33 @@
+Tools: sys.find, count, summarize, compare
+
+Find all the *.py scripts in the current dir and summarize each one.
+
+Looking at the summary of all files write a short description of this program and its function.
+
+---
+name: compare
+description: Sorts a list of number from smallest to biggest
+arg: list: A comma separated list of numbers to sort
+
+#!/bin/bash
+
+for i in $(echo "${LIST}" | sed 's/[[,\]]/ /g'); do
+    echo $i
+done | sort -n
+
+---
+name: count
+description: Count the lines a file
+arg: file: The filename to count the lines of
+
+#!/bin/bash
+
+wc -l "${FILE}"
+
+---
+name: summarize
+tools: sys.read
+description: Read a go file
+arg: file: The filename to read
+
+First read the passed file and then summarize it's content into no more than 100 words
