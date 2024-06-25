@@ -58,6 +58,7 @@ def get_oai_response(model, functions, msgs, api_key, base_url):
     print(e)
 
 
+
 def insert_tool_response(res, msgs):
 
     assistant_message = res.message
@@ -117,9 +118,7 @@ def insert_tool_response(res, msgs):
     
     return msgs
 
-def run_completion(chat_method, user_query, msgs=[], model="gpt-4-0125-preview"):
-    system_prompt = "You are a helpful assistant."
-    functions = [
+functions = [
         # {"type": "function","function":{"name":"calculate_distance","description":"Calculate the distance between two locations","parameters":{"type":"object","properties":{"origin":{"type":"string","description":"The starting location"},"destination":{"type":"string","description":"The destination location"},"mode":{"type":"string","description":"The mode of transportation"}},"required":["origin","destination","mode"]}}},{"type": "function","function":{"name":"generate_password","description":"Generate a random password","parameters":{"type":"object","properties":{"length":{"type":"integer","description":"The length of the password"}},"required":["length"]}}},
         {
             "type": "function",
@@ -406,6 +405,10 @@ def run_completion(chat_method, user_query, msgs=[], model="gpt-4-0125-preview")
     
       {"type": "function","function":{"name":"calculate_distance","description":"Calculate the distance between two locations","parameters":{"type":"object","properties":{"origin":{"type":"string","description":"The starting location"},"destination":{"type":"string","description":"The destination location"},"mode":{"type":"string","description":"The mode of transportation"}},"required":["origin","destination","mode"]}}},{"type": "function","function":{"name":"generate_password","description":"Generate a random password","parameters":{"type":"object","properties":{"length":{"type":"integer","description":"The length of the password"}},"required":["length"]}}}
        ]
+
+def run_completion(chat_method, user_query, msgs=[], model="gpt-4-0125-preview"):
+    system_prompt = "You are a helpful assistant."
+    
     # functions = [{"type": "function","function":{"name":"calculate_distance","description":"Calculate the distance between two locations","parameters":{"type":"object","properties":{"origin":{"type":"string","description":"The starting location"},"destination":{"type":"string","description":"The destination location"},"mode":{"type":"string","description":"The mode of transportation"}},"required":["origin","destination","mode"]}}},{"type": "function","function":{"name":"generate_password","description":"Generate a random password","parameters":{"type":"object","properties":{"length":{"type":"integer","description":"The length of the password"}},"required":["length"]}}}]
 
     if not msgs or len(msgs) == 0:
@@ -415,24 +418,10 @@ def run_completion(chat_method, user_query, msgs=[], model="gpt-4-0125-preview")
 
     res = chat_method(model=model, functions=functions, msgs=msgs)
     res_next = res
-    # if res_next.message.content and len(res_next.message.content) > 0:
-    #     # print("\n[AI response]:\n", res_next.message.content)
-    #     pass
-    # else:
-    #     print("\n[AI calling functions]:")
-    #     for tool_call in res_next.message.tool_calls:
-    #         print(f"Tool Call: {tool_call.function}")
     l = 0
     while res_next.message.tool_calls and len(res_next.message.tool_calls) > 0:
         msgs = insert_tool_response(res_next, msgs)
         res_next = chat_method(model=model, functions=functions, msgs=msgs)
-        # print(f"Loop {l}")
-        # if res_next.message.content and len(res_next.message.content) > 0:
-        #     print("\n[AI response]:\n", res_next.message.content)
-        # else:
-        #     print("\n[AI calling functions]:")
-        #     for tool_call in res_next.message.tool_calls:
-        #         print(f"Tool Call: {tool_call.function}")
         l += 1
         if l > 5: # likely in a unnecessary dead loop
             break
