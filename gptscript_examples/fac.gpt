@@ -16,8 +16,8 @@ Do the following in strict order:
 ---
 name: sub
 description: Subtract two numbers
-args: left: a number
-args: right: a number
+args: left: number to be subtracted
+args: right: number to subtract
 
 #!/bin/bash
 
@@ -26,8 +26,8 @@ echo $((${LEFT} - ${RIGHT}))
 ---
 name: mul
 description: Multiply two numbers
-args: left: a number
-args: right: a number
+args: left: first number to multiply
+args: right: second number to multiply with
 
 #!/bin/bash
 

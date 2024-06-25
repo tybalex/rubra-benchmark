@@ -20,7 +20,7 @@ models = args.models.split(",")
 verbose = args.verbose
 port = args.port
 
-local_api_key = "sk-"
+local_api_key = "token-abc123"
 local_base_url = f"http://localhost:{port}/v1/"
 get_model_response = partial(get_oai_response, api_key=local_api_key, base_url=local_base_url)
 print(f"Pointing to local URL: {local_base_url}\n")
