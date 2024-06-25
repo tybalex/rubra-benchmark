@@ -27,6 +27,11 @@ pip install -r requirements.txt
 
 ### Run test
 
+rubra-vllm:
+```
+bash test_rubra.sh --port 8000 --model sanjay920/Llama-3-8b-function-calling-alpha-v1
+```
+
 tools.cpp:
 ```
 bash test_rubra.sh --port 1234 --model Llama-3-8b-function-calling-alpha-v1.gguf
