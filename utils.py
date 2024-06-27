@@ -114,6 +114,13 @@ def insert_tool_response(res, msgs):
                 "content": div(tool_call.function.arguments),
                 "tool_call_id": tool_call.id
             })
+        else:
+            msgs.append({
+                "role": "tool",
+                "name": assistant_message.tool_calls[i].function.name,
+                "content": "done",
+                "tool_call_id": tool_call.id
+            })
         # print(f"Observation: {msgs[-1]}")
     
     return msgs

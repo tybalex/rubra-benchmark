@@ -27,7 +27,7 @@ wc -l "${FILE}"
 ---
 name: summarize
 tools: sys.read
-description: Read a go file
+description: Read a file and summarize it
 arg: file: The filename to read
 
 First read the passed file and then summarize it's content into no more than 100 words
